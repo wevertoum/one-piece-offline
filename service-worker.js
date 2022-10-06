@@ -161,22 +161,6 @@ registerRoute(
   "GET"
 );
 
-// save manifest.json to cache
-registerRoute(
-  ({ url }) => url.pathname === "/manifest.json",
-  new NetworkFirst({
-    cacheName: "manifest",
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 1,
-        maxAgeSeconds: 86400,
-        purgeOnQuotaError: !0,
-      }),
-    ],
-  }),
-  "GET"
-);
-
 setDefaultHandler(new StaleWhileRevalidate());
 setCatchHandler(({ event }) => {
   switch (event.request.destination) {

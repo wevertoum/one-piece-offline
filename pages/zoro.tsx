@@ -30,7 +30,7 @@ const ZoroPage: NextPage = () => {
           <button
             className={styles.button}
             onClick={() => {
-              router.push("/");
+              router.push("/luffy");
             }}
           >
             luffy
